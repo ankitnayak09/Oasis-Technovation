@@ -1,14 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technovation | Oasis </title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Student Organization OASIS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="style.css" rel="stylesheet">
+
 </head>
+
 <body>
-    
-    <script src="script.js"></script>
+
+    <!--==========================
+  Header
+  ============================-->
+    <header id="header" class="fixed-top">
+        <div class="container">
+
+            <div class="logo float-left">
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+                <a href="#intro" class="scrollto"><img src="img/oasis_logo.png" alt="" class="img-fluid"></a>
+            </div>
+
+            <nav class="main-nav float-right d-none d-lg-block">
+                <ul>
+                    <li class="active"><a href="#intro">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#" class="btn btn-login" onclick="login()">Login</a></li>
+                    <li><a href="#" class="btn btn-sign-up" onclick="signUp()">Sign Up</a></li>
+                    <li><a href="profile_page.html" class=""><i class="user-icon fa fa-user-circle"></i></a></li>
+                </ul>
+            </nav><!-- .main-nav -->
+
+        </div>
+    </header><!-- #header -->
+
+
+    <!-- 
+  ==============================
+    Login/Sign Up Overlay
+  ============================== -->
+
+    <!-- The Modal (contains the Sign Up form) -->
+    <div id="form-sign-up" class="modal">
+        <form class="modal-content" method="POST" action="">
+            <!-- TODO: ADD the action attribute -->
+            <div class="container">
+                <span
+                    onclick="document.getElementById('form-sign-up').style.display='none';document.body.classList.remove('no-overflow');"
+                    class="close" title="Close Form"><i class="fa fa-times"></i></span>
+                <h3>Sign in to OASIS</h3>
+                <hr>
+                <!-- <label for="name"><b></b></label> -->
+                <input type="text" placeholder="Full name" name="name" required>
+
+                <!-- <label for="email"><b>Email</b></label> -->
+                <input type="email" placeholder="Email" name="email" required>
+
+                <!-- <label for="password"><b>Password</b></label> -->
+                <div class="password-group">
+                    <input type="password" placeholder="Password" id="signPassword" name="repeat" required>
+                    <i class="fa fa-eye" id="toggleSignPassword"></i>
+                </div>
+
+                <!-- <label>
+        <input type="checkbox" checked name="remember" style="margin-bottom:10px;"> Remember me
+      </label> -->
+
+                <!-- <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
+
+                <div class="clearfix">
+                    <button type="submit" class="signup" onclick="signUpForm()">Continue</button>
+                </div>
+                <hr>
+                <div class="or">OR</div>
+                <p>Sign in with</p>
+                <div class="social-links">
+                    <a href="#"><img src="img/social-icons/google.png" alt="Sign in with Google"></a>
+                    <a href="#"><img src="img/social-icons/facebook.png" alt="Sign in with Facebook"></a>
+                    <a href="#"><img src="img/social-icons/mail.png" alt="Sign in with Email"></a>
+                </div>
+                <p style="text-align: center;">Already have an account? <span onclick="login()" class="link"> Log
+                        In</span></p>
+            </div>
+        </form>
+    </div>
+
+    <div id="form-login" class="modal">
+        <form class="modal-content" method="POST" action="">
+            <!-- TODO: ADD the action attribute -->
+            <div class="container">
+                <span
+                    onclick="document.getElementById('form-login').style.display='none';document.body.classList.remove('no-overflow');"
+                    class="close" title="Close Form"><i class="fa fa-times"></i></span>
+                <h3>Welcome Back</h3>
+                <hr>
+
+                <!-- <label for="email"><b>Email</b></label> -->
+                <input type="email" placeholder="Email" name="email" required>
+
+                <!-- <label for="password"><b>Password</b></label> -->
+                <div class="password-group">
+                    <input type="password" placeholder="Password" id="loginPassword" name="password" required>
+                    <i class="fa fa-eye" id="toggleLoginPassword"></i>
+                </div>
+
+                <label>
+                    <input type="checkbox" checked name="remember" style="margin-bottom:10px"> Remember me
+                </label>
+
+                <div class="clearfix">
+                    <button type="submit" class="signup">Log In</button>
+                </div>
+
+                <div class="or" style="margin-top: 1rem;">OR</div>
+                <p>Login with</p>
+                <div class="social-links">
+                    <a href="#"><img src="img/social-icons/google.png" alt="Sign in with Google"></a>
+                    <a href="#"><img src="img/social-icons/facebook.png" alt="Sign in with Facebook"></a>
+                    <a href="#"><img src="img/social-icons/mail.png" alt="Sign in with Email"></a>
+                </div>
+
+                <p style="text-align: center;">
+                    Don't have an account? <span onclick="signUp()" class="link"> Sign Up</span></p>
+            </div>
+        </form>
+    </div>
+    <!-- #Login/Sign Up Overlay -->
+
+    <main id="main">
+
+        <!--==========================
+      Services Section
+    ============================-->
+        <section id="services" class="wow fadeIn">
+            <div class="container">
+                <header class="section-header">
+                    <h3>Why choose us?</h3>
+                    <p>OUR EXPERTISE</p>
+                </header>
+
+                <div class="row row-eq-height justify-content-center">
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fa fa-diamond"></i>
+                            <div class="card-body">
+                                <h5 class="card-title">Entertainment Events</h5>
+                                <p class="card-text">Entertainment is the field which undoubtedly must be promoted, in
+                                    line with this
+                                    team Oasis has always been a supporter and a conductor of events of this zone.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fa fa-language"></i>
+                            <div class="card-body">
+                                <h5 class="card-title">Social Events</h5>
+                                <p class="card-text">We know our worth. Since we are the youth, therefore we are power.
+                                    We encourage
+                                    talents, result of which we register new records.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fa fa-object-group"></i>
+                            <div class="card-body">
+                                <h5 class="card-title">Technical events</h5>
+                                <p class="card-text">Technology is the new synonym of E-facility. We not only have
+                                    technical minds as a
+                                    backbone of our team but we also conduct tech events to serve society.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row row-eq-height justify-content-center">
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fa fa-diamond"></i>
+                            <div class="card-body">
+                                <h5 class="card-title">Edutainment</h5>
+                                <p class="card-text">A beautiful amalgam of education cum entertainment event, which the
+                                    team OASIS has
+                                    been doing for it's followers and yet many more to come.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fa fa-language"></i>
+                            <div class="card-body">
+                                <h5 class="card-title">Reality Show</h5>
+                                <p class="card-text">"The Funky Feets" today is not less than a brand. We have created,
+                                    planned and
+                                    successfully executed this show to make it LPU's first ever E dance Reality show.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <i class="fa fa-object-group"></i>
+                            <div class="card-body">
+                                <h5 class="card-title">Cultural Shows</h5>
+                                <p class="card-text">Touching the cloud-lines, concomitantly having connection with the
+                                    roots, is the
+                                    trick we know very well. We conduct cultural shows of different categories.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row counters">
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">274</span>
+                        <p>Clients</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">421</span>
+                        <p>Projects</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">1,364</span>
+                        <p>Hours Of Support</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-toggle="counter-up">18</span>
+                        <p>Hard Workers</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- #services -->
+
+        <!--==========================
+      Upcoming Events Section
+    ============================-->
+        <section id="upcomingEvents" class="wow fadeIn">
+            <div class="container">
+                <header class="section-header">
+                    <h3>Upcoming Events</h3>
+                </header>
+
+                <div class="row row-eq-height justify-content-center">
+
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <div class="card-body">
+                                <img src="img/team/juhi.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <div class="date">
+                                <div class="event-date">19</div>
+                                <div class="event-month">APR</div>
+                            </div>
+                            <div class="event-details">
+                                <h5>Lorem ipsum dolor sit
+                                </h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quasi error quaerat
+                                    recusandae ab quos, cum itaque
+                                </p>
+                                <a href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <div class="card-body">
+                                <img src="img/team/juhi.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <div class="date">
+                                <div class="event-date">19</div>
+                                <div class="event-month">APR</div>
+                            </div>
+                            <div class="event-details">
+                                <h5>Lorem ipsum dolor sit
+                                </h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quasi error quaerat
+                                    recusandae ab quos, cum itaque
+                                </p>
+                                <a href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="card wow bounceInUp">
+                            <div class="card-body">
+                                <img src="img/team/juhi.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <div class="date">
+                                <div class="event-date">19</div>
+                                <div class="event-month">APR</div>
+                            </div>
+                            <div class="event-details">
+                                <h5>Lorem ipsum dolor sit
+                                </h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quasi error quaerat
+                                    recusandae ab quos, cum itaque
+                                </p>
+                                <a href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- #upcoming Events -->
+
+        <!--==========================
+      Clients Section
+    ============================-->
+        <!-- TODO: change clients to partners everywhere including css file -->
+        <section id="clients" class="section-bg">
+
+            <div class="container">
+
+                <div class="section-header">
+                    <h3>Sponsoring Partners</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dere
+                        santome nida.
+                    </p>
+                </div>
+
+                <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="img/clients/client-1.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="img/clients/client-2.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="img/clients/client-3.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="img/clients/client-4.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="img/clients/client-5.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="img/clients/client-6.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="img/clients/client-7.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="client-logo">
+                            <img src="img/clients/client-8.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!--==========================
+    Footer
+  ============================-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 footer-info">
+                        <a href="#intro" class="scrollto"><img src="img/oasis_logo_white.png" alt=""
+                                class="img-fluid"></a>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Essential Links</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+
+                            <li><a href="#team">Team</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            Lovely Professional University<br>
+                            Phagwara, Punjab<br>
+                            <strong>Phone:</strong><a href="tel:+91 90442 22267" style="color: #fff;"> +91 90442
+                                22267</a><br>
+                            <strong>Phone:</strong><a href="tel:+91 85292 39874" style="color: #fff;"> +91 85292
+                                39874</a><br>
+                            <strong>Email:</strong><a href="mailto:Contactus@oasislpu.in" style="color: #fff;">
+                                Contactus@oasislpu.in</a><br>
+                        </p>
+
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/oasislpu/" class="facebook"><i
+                                    class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/oasislpu/" class="google-plus"><i
+                                    class="fa fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/oasislpu" class="linkedin"><i
+                                    class="fa fa-linkedin"></i></a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="credits">
+                Made with <span style="color: red;">♥</span> by Team OASIS</div>
+        </div>
+    </footer><!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+
+
+
+
 </body>
+
 </html>
